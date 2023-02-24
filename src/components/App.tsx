@@ -1,9 +1,9 @@
-import { Outlet, Route, Routes } from "react-router-dom";
-import { Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Layout } from "./Layout/Layout";
 
 export const App = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const changeLanguage = (language: "ua" | "en") => {
     i18n.changeLanguage(language);
@@ -12,17 +12,7 @@ export const App = () => {
   return (
     <>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              Layout
-              <Suspense>
-                <Outlet />
-              </Suspense>
-            </>
-          }
-        >
+        <Route path="/" element={<Layout />}>
           <Route index element={<>Home page</>} />
           <Route path="/news" element={<>News page</>} />
           <Route path="/profile" element={<>User page</>} />
@@ -32,22 +22,3 @@ export const App = () => {
     </>
   );
 };
-
-// <Routes>
-//     <Route
-//         path="/"
-//         element={
-//             <>
-//                 Layout
-//                 <Suspense>
-//                     <Outlet />
-//                 </Suspense>
-//             </>
-//         }
-//     >
-//         <Route index element={<>Home page</>} />
-//         <Route path="/news" element={<>News page</>} />
-//         <Route path="/profile" element={<>User page</>} />
-//         <Route path="*" element={<>Not found</>} />
-//     </Route>
-// </Routes>

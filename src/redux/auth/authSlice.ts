@@ -4,7 +4,6 @@ const { REACT_APP_USERNAME, REACT_APP_PASSWORD } = process.env;
 
 interface IInitialState {
   username: string;
-  password: string;
   isLoggedIn: boolean;
   error: string | undefined;
   isLoading: boolean;
@@ -17,7 +16,6 @@ interface ILoginAction {
 
 const initialState: IInitialState = {
   username: "",
-  password: "",
   isLoggedIn: false,
   error: undefined,
   isLoading: false,
@@ -37,7 +35,6 @@ const authSlice = createSlice({
 
       if (isPassword && isUsername) {
         state.username = username;
-        state.password = password;
       } else {
         state.error = "Invalid email or password";
       }
@@ -48,7 +45,6 @@ const authSlice = createSlice({
       state.isLoading = true;
       state.error = undefined;
       state.username = "";
-      state.password = "";
       state.isLoading = false;
     },
   },

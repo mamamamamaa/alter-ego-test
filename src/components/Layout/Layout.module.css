@@ -1,0 +1,13 @@
+.containerStyles {
+  background-color: #efebeb;
+  box-shadow: 10px 10px 44px -21px rgba(0, 0, 0, 0.75);
+}
+
+.boxStyles {
+  padding: 6px 12px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #989898;
+}

@@ -5,9 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+  background-image: radial-gradient(circle at 40.75% 63.22%, #f4fefd 0, #edf3f2 25%, #e6e6e6 50%, #ded9db 75%, #d7ced1 100%);}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+body::-webkit-scrollbar{
+  background-color: transparent;
+  width: 4px;
+}
+
+body::-webkit-scrollbar-thumb{
+  background-color: #808080;
+  border-radius: 10px;
 }
