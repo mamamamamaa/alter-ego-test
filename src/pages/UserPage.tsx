@@ -1,7 +1,8 @@
 import { FC } from "react";
+import { UserCard } from "../components/UserCard/UserCard";
 
 const UserPage: FC = () => {
-  return <>User Page</>;
+  return <UserCard />;
 };
 
 export default UserPage;

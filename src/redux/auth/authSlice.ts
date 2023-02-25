@@ -35,6 +35,7 @@ const authSlice = createSlice({
 
       if (isPassword && isUsername) {
         state.username = username;
+        state.isLoggedIn = true;
       } else {
         state.error = "Invalid email or password";
       }
@@ -45,6 +46,7 @@ const authSlice = createSlice({
       state.isLoading = true;
       state.error = undefined;
       state.username = "";
+      state.isLoggedIn = false;
       state.isLoading = false;
     },
   },

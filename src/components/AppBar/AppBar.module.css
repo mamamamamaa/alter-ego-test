@@ -1,0 +1,10 @@
+.navLink {
+  text-decoration: none;
+  color: grey;
+  font-size: 20px;
+}
+
+.navLink .active {
+  color: black;
+  border-bottom: #1976d2 2px solid;
+}

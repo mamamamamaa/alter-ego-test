@@ -16,7 +16,7 @@ import { newsReducer } from "./news/newsSlice";
 const authPersistConfig = {
   key: "auth",
   storage,
-  whitelist: ["username", "password, isLoggedIn"],
+  whitelist: ["username", "isLoggedIn"],
 };
 
 export const store = configureStore({

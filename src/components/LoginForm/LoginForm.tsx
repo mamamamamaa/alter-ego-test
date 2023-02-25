@@ -12,6 +12,10 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useAppDispatch, useAuth } from "../../redux/hooks";
+import toast from "react-hot-toast";
+import { login } from "../../redux/auth/authSlice";
+import { useEffect } from "react";
 
 const Copyright = (props: any) => {
   return (
@@ -23,7 +27,7 @@ const Copyright = (props: any) => {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        YOUR NEWS
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -34,14 +38,30 @@ const Copyright = (props: any) => {
 const theme = createTheme();
 
 export const LoginForm = () => {
+  const dispatch = useAppDispatch();
+  const { error } = useAuth();
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+
+    const userData = {
+      username: String(data.get("username")),
+      password: String(data.get("password")),
+    };
+
+    const isEmpty = Object.values(userData).includes("");
+
+    if (!isEmpty) {
+      dispatch(login(userData));
+    }
   };
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+  }, [error]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -71,10 +91,9 @@ export const LoginForm = () => {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="username"
+              label="Username"
+              name="username"
               autoFocus
             />
             <TextField
@@ -86,10 +105,6 @@ export const LoginForm = () => {
               type="password"
               id="password"
               autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
             />
             <Button
               type="submit"
