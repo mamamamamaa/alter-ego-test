@@ -14,4 +14,10 @@ export const useAuth = () => {
   return { isLoading, error, isLoggedIn, username };
 };
 
-export const useNews = () => {};
+export const useNews = () => {
+  const isLoading = useAppSelector((store) => store.news.isLoading);
+  const error = useAppSelector((store) => store.news.error);
+  const news = useAppSelector((store) => store.news.news);
+
+  return { isLoading, error, news };
+};
