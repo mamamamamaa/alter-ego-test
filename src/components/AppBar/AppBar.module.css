@@ -4,6 +4,9 @@
   font-size: 20px;
 }
 
-.navLink.active {
+.ActiveNavLink {
+  text-decoration: none;
+  color: grey;
+  font-size: 20px;
   border-bottom: #1976d2 2px solid;
 }

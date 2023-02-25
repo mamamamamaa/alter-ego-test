@@ -4,29 +4,50 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../../redux/hooks";
 import style from "./AppBar.module.css";
 import Box from "@mui/material/Box";
+import Alert from "@mui/material/Alert";
+import * as React from "react";
 import { Toaster } from "react-hot-toast";
-import Link from "@mui/material/Link";
 
 export const AppBar: FC = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, error } = useAuth();
   return (
     <>
       <Toaster />
-      <Link component={NavLink} to="/" className={style.navLink}>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive ? style.ActiveNavLink : style.navLink
+        }
+      >
         <Logo />
-      </Link>
+      </NavLink>
       <Box gap="20px" display="flex">
-        <Link component={NavLink} to="/news" className={style.navLink}>
+        <NavLink
+          to="/news"
+          className={({ isActive }) =>
+            isActive ? style.ActiveNavLink : style.navLink
+          }
+        >
           News
-        </Link>
+        </NavLink>
         {isLoggedIn ? (
-          <Link component={NavLink} to="/profile" className={style.navLink}>
+          <NavLink
+            to="/profile"
+            className={({ isActive }) =>
+              isActive ? style.ActiveNavLink : style.navLink
+            }
+          >
             Profile
-          </Link>
+          </NavLink>
         ) : (
-          <Link component={NavLink} to="/login" className={style.navLink}>
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              isActive ? style.ActiveNavLink : style.navLink
+            }
+          >
             Login
-          </Link>
+          </NavLink>
         )}
       </Box>
     </>
