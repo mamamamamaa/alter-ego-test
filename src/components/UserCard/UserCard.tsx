@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import Box from "@mui/material/Box";
 import { useAppDispatch, useAuth } from "../../redux/hooks";
 import Typography from "@mui/material/Typography";

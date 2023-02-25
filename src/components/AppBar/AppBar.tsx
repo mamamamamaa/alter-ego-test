@@ -5,27 +5,28 @@ import { useAuth } from "../../redux/hooks";
 import style from "./AppBar.module.css";
 import Box from "@mui/material/Box";
 import { Toaster } from "react-hot-toast";
+import Link from "@mui/material/Link";
 
 export const AppBar: FC = () => {
   const { isLoggedIn } = useAuth();
   return (
     <>
       <Toaster />
-      <NavLink to="/" className={style.navLink}>
+      <Link component={NavLink} to="/" className={style.navLink}>
         <Logo />
-      </NavLink>
+      </Link>
       <Box gap="20px" display="flex">
-        <NavLink to="/news" className={style.navLink}>
+        <Link component={NavLink} to="/news" className={style.navLink}>
           News
-        </NavLink>
+        </Link>
         {isLoggedIn ? (
-          <NavLink to="/profile" className={style.navLink}>
+          <Link component={NavLink} to="/profile" className={style.navLink}>
             Profile
-          </NavLink>
+          </Link>
         ) : (
-          <NavLink to="/login" className={style.navLink}>
+          <Link component={NavLink} to="/login" className={style.navLink}>
             Login
-          </NavLink>
+          </Link>
         )}
       </Box>
     </>
