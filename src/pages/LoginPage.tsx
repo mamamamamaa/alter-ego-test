@@ -1,7 +1,8 @@
 import { FC } from "react";
+import { LoginForm } from "../components/LoginForm/LoginForm";
 
 const LoginPage: FC = () => {
-  return <>Login Page</>;
+  return <LoginForm />;
 };
 
 export default LoginPage;

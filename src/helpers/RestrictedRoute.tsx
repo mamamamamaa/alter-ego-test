@@ -1,4 +1,4 @@
-import { ComponentType } from "react";
+import { ComponentType, FC } from "react";
 import { useAuth } from "../redux/hooks";
 import { Navigate } from "react-router-dom";
 
@@ -7,10 +7,10 @@ interface Props {
   redirectTo: string;
 }
 
-export const RestrictedRoute = ({
+export const RestrictedRoute: FC<Props> = ({
   component: Component,
   redirectTo = "/",
-}: Props) => {
+}) => {
   const { isLoggedIn } = useAuth();
-  return isLoggedIn ? Component : <Navigate to={redirectTo} />;
+  return isLoggedIn ? <Navigate to={redirectTo} /> : <Component />;
 };
