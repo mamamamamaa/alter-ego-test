@@ -39,16 +39,8 @@ interface Props {
 }
 
 export const NewsCard: FC<Props> = ({ articleData }) => {
-  const {
-    author,
-    title,
-    description,
-    url,
-    urlToImage,
-    content,
-    source,
-    publishedAt,
-  } = articleData;
+  const { author, title, description, url, urlToImage, content, publishedAt } =
+    articleData;
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -58,11 +50,16 @@ export const NewsCard: FC<Props> = ({ articleData }) => {
 
   const date = moment(publishedAt).format("MMMM Do YYYY");
   const truncateTitle = truncateString(title);
+  const truncateDescription = truncateString(description, 240);
   const articleAuthor = author || "Author unknown";
 
   return (
     <>
-      <Card sx={{ maxWidth: 345, height: "max-height" }}>
+      <Card
+        sx={{
+          maxWidth: 345,
+        }}
+      >
         <CardHeader title={truncateTitle} subheader={date} />
         <CardMedia
           component="img"
@@ -71,8 +68,8 @@ export const NewsCard: FC<Props> = ({ articleData }) => {
           alt={title}
         />
         <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            {description}
+          <Typography variant="body2" color="text.secondary" height={150}>
+            {truncateDescription}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
