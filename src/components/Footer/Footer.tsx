@@ -28,7 +28,7 @@ export const Footer: FC = () => {
         color="text.secondary"
         component="p"
       >
-        Something here to give the footer a purpose!
+        Test task in the company Alter Ego
       </Typography>
       <Copyright />
     </>
