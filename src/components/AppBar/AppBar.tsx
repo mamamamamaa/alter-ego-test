@@ -4,12 +4,14 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../../redux/hooks";
 import style from "./AppBar.module.css";
 import Box from "@mui/material/Box";
-import Alert from "@mui/material/Alert";
 import * as React from "react";
 import { Toaster } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
+import { LanguageChanger } from "../LanguageChanger/LanguageChanger";
 
 export const AppBar: FC = () => {
   const { isLoggedIn, error } = useAuth();
+  const { t } = useTranslation();
   return (
     <>
       <Toaster />
@@ -28,7 +30,7 @@ export const AppBar: FC = () => {
             isActive ? style.ActiveNavLink : style.navLink
           }
         >
-          News
+          {t("appBar.news")}
         </NavLink>
         {isLoggedIn ? (
           <NavLink
@@ -37,7 +39,7 @@ export const AppBar: FC = () => {
               isActive ? style.ActiveNavLink : style.navLink
             }
           >
-            Profile
+            {t("appBar.profile")}
           </NavLink>
         ) : (
           <NavLink
@@ -46,9 +48,10 @@ export const AppBar: FC = () => {
               isActive ? style.ActiveNavLink : style.navLink
             }
           >
-            Login
+            {t("appBar.login")}
           </NavLink>
         )}
+        <LanguageChanger />
       </Box>
     </>
   );

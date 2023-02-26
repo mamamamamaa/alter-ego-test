@@ -1,10 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { Layout } from "./Layout/Layout";
 import { FC, lazy } from "react";
 import { PrivateRoute } from "../helpers/PrivateRoute";
 import { RestrictedRoute } from "../helpers/RestrictedRoute";
-import axios from "axios";
 
 const HomePage = lazy(() => import("../pages/HomePage"));
 const NewsPage = lazy(() => import("../pages/NewsPage"));
@@ -13,11 +11,6 @@ const LoginPage = lazy(() => import("../pages/LoginPage"));
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
 export const App: FC = () => {
-  const { i18n } = useTranslation();
-  const changeLanguage = (language: "ua" | "en") => {
-    i18n.changeLanguage(language);
-  };
-
   return (
     <>
       <Routes>
