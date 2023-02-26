@@ -14,5 +14,9 @@
   "footer": {
     "beHappy": "Be happy!",
     "description": "Test task for the company Alter Ego"
+  },
+  "profile": {
+    "welcome": "Welcome my friend",
+    "logout": "Logout"
   }
 }

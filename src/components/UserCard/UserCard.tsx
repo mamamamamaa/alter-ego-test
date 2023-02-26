@@ -4,10 +4,12 @@ import { useAppDispatch, useAuth } from "../../redux/hooks";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { logout } from "../../redux/auth/authSlice";
+import { useTranslation } from "react-i18next";
 
 export const UserCard: FC = () => {
-  const dispatch = useAppDispatch();
   const { username } = useAuth();
+  const { t } = useTranslation();
+  const dispatch = useAppDispatch();
 
   const handleLogout = () => dispatch(logout());
 
@@ -23,13 +25,13 @@ export const UserCard: FC = () => {
         gap={5}
       >
         <Typography variant="h2" color="gray">
-          Welcome my friend -{" "}
+          {t("profile.welcome")} -{" "}
           <Box component="span" color="#1976d2">
             {username}
           </Box>
         </Typography>
         <Button size="medium" onClick={handleLogout}>
-          Logout
+          {t("profile.logout")}
         </Button>
       </Box>
     </>

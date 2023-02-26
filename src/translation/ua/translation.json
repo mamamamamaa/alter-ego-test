@@ -14,5 +14,9 @@
   "footer": {
     "beHappy": "Будьте щасливі!",
     "description": "Тестове завдання для компанії Alter Ego"
+  },
+  "profile": {
+    "welcome": "Вітаю мій друже",
+    "logout": "Вийти"
   }
 }
