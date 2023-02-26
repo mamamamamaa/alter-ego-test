@@ -4,6 +4,7 @@ import { Layout } from "./Layout/Layout";
 import { FC, lazy } from "react";
 import { PrivateRoute } from "../helpers/PrivateRoute";
 import { RestrictedRoute } from "../helpers/RestrictedRoute";
+import axios from "axios";
 
 const HomePage = lazy(() => import("../pages/HomePage"));
 const NewsPage = lazy(() => import("../pages/NewsPage"));
