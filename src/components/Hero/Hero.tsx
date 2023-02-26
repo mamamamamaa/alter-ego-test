@@ -9,11 +9,7 @@ export const Hero: FC = () => {
   return (
     <>
       <CssBaseline />
-      <Box
-        sx={{
-          pt: 8,
-        }}
-      >
+      <Box sx={{ pt: 8 }}>
         <Container maxWidth="sm">
           <Typography
             component="h1"
@@ -25,9 +21,7 @@ export const Hero: FC = () => {
             News
           </Typography>
           <Typography
-            sx={{
-              mb: 0,
-            }}
+            sx={{ mb: 0 }}
             variant="h5"
             align="center"
             color="grey"
