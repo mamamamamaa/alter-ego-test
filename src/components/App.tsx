@@ -1,8 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./Layout/Layout";
-import { FC, lazy } from "react";
+import { FC, lazy, useEffect } from "react";
 import { PrivateRoute } from "../helpers/PrivateRoute";
 import { RestrictedRoute } from "../helpers/RestrictedRoute";
+import { useAppDispatch } from "../redux/hooks";
+import { changeNewsLanguage } from "../redux/news/newsSlice";
+import { useTranslation } from "react-i18next";
 
 const HomePage = lazy(() => import("../pages/HomePage"));
 const NewsPage = lazy(() => import("../pages/NewsPage"));
@@ -11,6 +14,13 @@ const LoginPage = lazy(() => import("../pages/LoginPage"));
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
 export const App: FC = () => {
+  const dispatch = useAppDispatch();
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    dispatch(changeNewsLanguage(i18n.language));
+  }, [dispatch]);
+
   return (
     <>
       <Routes>

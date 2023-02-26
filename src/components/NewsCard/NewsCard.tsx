@@ -13,6 +13,7 @@ import { FC } from "react";
 import { Article } from "../../redux/news/operations";
 import moment from "moment";
 import Link from "@mui/material/Link";
+import { useTranslation } from "react-i18next";
 
 const DEFAULT_IMAGE = "https://source.unsplash.com/random";
 
@@ -42,16 +43,22 @@ export const NewsCard: FC<Props> = ({ articleData }) => {
   const { author, title, description, url, urlToImage, content, publishedAt } =
     articleData;
 
+  const {
+    i18n: { language },
+  } = useTranslation();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const date = moment(publishedAt).format("MMMM Do YYYY");
-  const truncateTitle = truncateString(title);
-  const truncateDescription = truncateString(description, 240);
   const articleAuthor = author || "Author unknown";
+  const date = moment(publishedAt).format("MMMM Do YYYY");
+
+  const numbOfTitleSymbols = language === "ua" ? 16 : 20;
+  const truncateTitle = truncateString(title, numbOfTitleSymbols) || "No title";
+  const truncateDescription =
+    truncateString(description, 200) || "No description";
 
   return (
     <>

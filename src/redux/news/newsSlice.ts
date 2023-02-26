@@ -7,6 +7,7 @@ interface IInitialState {
   news: Article[] | [];
   currentPage: number;
   maxPage: number;
+  newsLanguage: "en" | "de";
 }
 
 const initialState: IInitialState = {
@@ -15,12 +16,17 @@ const initialState: IInitialState = {
   news: [],
   currentPage: 1,
   maxPage: 0,
+  newsLanguage: "en",
 };
 
 const newsSlice = createSlice({
   name: "news",
   initialState,
-  reducers: {},
+  reducers: {
+    changeNewsLanguage(state, action) {
+      state.newsLanguage = action.payload === "ua" ? "de" : action.payload;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(getNews.pending, (state) => {
@@ -41,4 +47,5 @@ const newsSlice = createSlice({
 });
 
 export const newsReducer = newsSlice.reducer;
+export const { changeNewsLanguage } = newsSlice.actions;
 export type NewsSliceState = ReturnType<typeof newsSlice.getInitialState>;

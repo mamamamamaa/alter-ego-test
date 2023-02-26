@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { RootState } from "../store";
 import { NewsSliceState } from "./newsSlice";
 
 const { REACT_APP_API_KEY } = process.env;
@@ -31,9 +30,10 @@ export const getNews = createAsyncThunk<
   try {
     const { news } = thunkAPI.getState() as { news: NewsSliceState };
 
-    const { maxPage, currentPage } = news as {
+    const { maxPage, currentPage, newsLanguage } = news as {
       maxPage: number;
       currentPage: number;
+      newsLanguage: "en" | "ru";
     };
 
     if (currentPage > 1 && currentPage > maxPage) {
@@ -41,7 +41,7 @@ export const getNews = createAsyncThunk<
     }
 
     const res = await axios.get(
-      `https://newsapi.org/v2/everything?q=ukraine&apiKey=${REACT_APP_API_KEY}&language=en&pageSize=${PAGE_SIZE}&page=${currentPage}`
+      `https://newsapi.org/v2/everything?q=ukraine&apiKey=${REACT_APP_API_KEY}&pageSize=${PAGE_SIZE}&page=${currentPage}&language=${newsLanguage}`
     );
 
     return res.data;
