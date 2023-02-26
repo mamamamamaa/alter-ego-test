@@ -4,8 +4,11 @@ import Box from "@mui/material/Box";
 import * as React from "react";
 import { FC } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
+import { useTranslation } from "react-i18next";
 
 export const Hero: FC = () => {
+  const { t, i18n } = useTranslation();
+
   return (
     <>
       <CssBaseline />
@@ -18,7 +21,7 @@ export const Hero: FC = () => {
             color="#676666"
             gutterBottom
           >
-            News
+            {t("news.hero.news")}
           </Typography>
           <Typography
             sx={{ mb: 0 }}
@@ -27,8 +30,20 @@ export const Hero: FC = () => {
             color="grey"
             paragraph
           >
-            A page where you can see the latest news in your language.
+            {t("news.hero.description")}
           </Typography>
+          {i18n.language === "ua" && (
+            <Typography
+              sx={{ mb: 0 }}
+              variant="h5"
+              align="center"
+              color="grey"
+              paragraph
+            >
+              (На жаль, сервіс News API не дає новини українською мовою, тому
+              для зручності вони будуть російською мовою)
+            </Typography>
+          )}
         </Container>
       </Box>
     </>

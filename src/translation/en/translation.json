@@ -18,5 +18,11 @@
   "profile": {
     "welcome": "Welcome my friend",
     "logout": "Logout"
+  },
+  "news": {
+    "hero": {
+      "news": "News",
+      "description": "A page where you can see the latest news in your language. If you have changed the language, you will receive new news in your language."
+    }
   }
 }
