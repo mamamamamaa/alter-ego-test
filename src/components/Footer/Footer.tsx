@@ -2,6 +2,7 @@ import { FC } from "react";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import Link from "@mui/material/Link";
+import { useTranslation } from "react-i18next";
 
 const Copyright = () => {
   return (
@@ -17,10 +18,12 @@ const Copyright = () => {
 };
 
 export const Footer: FC = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Typography variant="h6" align="center" gutterBottom>
-        Be happy
+        {t("footer.beHappy")}
       </Typography>
       <Typography
         variant="subtitle1"
@@ -28,7 +31,7 @@ export const Footer: FC = () => {
         color="text.secondary"
         component="p"
       >
-        Test task in the company Alter Ego
+        {t("footer.description")}
       </Typography>
       <Copyright />
     </>

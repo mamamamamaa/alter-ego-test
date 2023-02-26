@@ -10,5 +10,9 @@
   },
   "home": {
     "banner": "Welcome to the news service Your News"
+  },
+  "footer": {
+    "beHappy": "Be happy!",
+    "description": "Test task for the company Alter Ego"
   }
 }
