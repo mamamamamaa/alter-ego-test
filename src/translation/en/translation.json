@@ -24,5 +24,11 @@
       "news": "News",
       "description": "A page where you can see the latest news in your language. If you have changed the language, you will receive new news in your language."
     }
+  },
+  "login": {
+    "signInBtn": "Sign In",
+    "signInHeading": "Sign In",
+    "username": "Username",
+    "password": "Password"
   }
 }

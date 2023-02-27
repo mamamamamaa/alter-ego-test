@@ -3,7 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
@@ -12,32 +11,15 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useAppDispatch, useAuth } from "../../redux/hooks";
 import { login } from "../../redux/auth/authSlice";
 import { useEffect } from "react";
-import { Alert } from "@mui/lab";
 import toast from "react-hot-toast";
-
-const Copyright = (props: any) => {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        YOUR NEWS
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-};
+import { useTranslation } from "react-i18next";
 
 const theme = createTheme();
 
 export const LoginForm = () => {
   const dispatch = useAppDispatch();
   const { error } = useAuth();
+  const { t } = useTranslation();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -77,7 +59,7 @@ export const LoginForm = () => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            {t("login.signInHeading")}
           </Typography>
           <Box
             component="form"
@@ -90,7 +72,7 @@ export const LoginForm = () => {
               required
               fullWidth
               id="username"
-              label="Username"
+              label={t("login.username")}
               name="username"
               autoFocus
             />
@@ -99,7 +81,7 @@ export const LoginForm = () => {
               required
               fullWidth
               name="password"
-              label="Password"
+              label={t("login.password")}
               type="password"
               id="password"
               autoComplete="current-password"
@@ -110,11 +92,10 @@ export const LoginForm = () => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              {t("login.signInBtn")}
             </Button>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );
