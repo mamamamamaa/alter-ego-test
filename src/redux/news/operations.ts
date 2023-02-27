@@ -41,7 +41,7 @@ export const getNews = createAsyncThunk<
     }
 
     const res = await axios.get(
-      `https://newsapi.org/v2/everything?q=ukraine&apiKey=${REACT_APP_API_KEY}&pageSize=${PAGE_SIZE}&page=${currentPage}&language=${newsLanguage}`
+      `https://alter-ego-back.onrender.com?&pageSize=${PAGE_SIZE}&page=${currentPage}&language=${newsLanguage}`
     );
 
     return res.data;
