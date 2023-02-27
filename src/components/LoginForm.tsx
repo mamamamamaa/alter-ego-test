@@ -1,4 +1,3 @@
-import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -8,17 +7,14 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useAppDispatch, useAuth } from "../../redux/hooks";
-import { login } from "../../redux/auth/authSlice";
-import { useEffect } from "react";
-import toast from "react-hot-toast";
+import { useAppDispatch } from "../redux/hooks";
+import { login } from "../redux/auth/authSlice";
 import { useTranslation } from "react-i18next";
 
 const theme = createTheme();
 
 export const LoginForm = () => {
   const dispatch = useAppDispatch();
-  const { error } = useAuth();
   const { t } = useTranslation();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -36,12 +32,6 @@ export const LoginForm = () => {
       dispatch(login(userData));
     }
   };
-
-  useEffect(() => {
-    if (error) {
-      toast.error(error);
-    }
-  }, [error]);
 
   return (
     <ThemeProvider theme={theme}>

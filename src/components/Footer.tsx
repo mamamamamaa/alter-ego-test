@@ -1,6 +1,5 @@
 import { FC } from "react";
 import Typography from "@mui/material/Typography";
-import * as React from "react";
 import Link from "@mui/material/Link";
 import { useTranslation } from "react-i18next";
 

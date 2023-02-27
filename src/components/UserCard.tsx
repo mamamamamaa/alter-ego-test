@@ -1,9 +1,9 @@
 import { FC } from "react";
 import Box from "@mui/material/Box";
-import { useAppDispatch, useAuth } from "../../redux/hooks";
+import { useAppDispatch, useAuth } from "../redux/hooks";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { logout } from "../../redux/auth/authSlice";
+import { logout } from "../redux/auth/authSlice";
 import { useTranslation } from "react-i18next";
 
 export const UserCard: FC = () => {

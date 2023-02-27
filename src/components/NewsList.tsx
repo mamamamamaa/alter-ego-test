@@ -3,9 +3,9 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import { LoadingButton } from "@mui/lab";
 import Container from "@mui/material/Container";
-import { NewsCard } from "../NewsCard/NewsCard";
-import { useAppDispatch, useNews } from "../../redux/hooks";
-import { getNews } from "../../redux/news/operations";
+import { NewsCard } from "./NewsCard";
+import { useAppDispatch, useNews } from "../redux/hooks";
+import { getNews } from "../redux/news/operations";
 import { useTranslation } from "react-i18next";
 
 export const NewsList: FC = () => {

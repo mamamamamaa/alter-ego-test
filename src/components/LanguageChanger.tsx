@@ -1,16 +1,16 @@
-import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import LanguageIcon from "@mui/icons-material/Language";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import { useTranslation } from "react-i18next";
-import { useAppDispatch } from "../../redux/hooks";
-import { changeNewsLanguage } from "../../redux/news/newsSlice";
+import { useAppDispatch } from "../redux/hooks";
+import { changeNewsLanguage } from "../redux/news/newsSlice";
 
 export const LanguageChanger = () => {
   const dispatch = useAppDispatch();
   const { t, i18n } = useTranslation();
+
   const changeLanguage = (language: "ua" | "en", close: Function) => {
     i18n.changeLanguage(language);
     dispatch(changeNewsLanguage(language));
@@ -20,7 +20,7 @@ export const LanguageChanger = () => {
   return (
     <PopupState variant="popover" popupId="demo-popup-menu">
       {(popupState) => (
-        <React.Fragment>
+        <>
           <Button variant="contained" {...bindTrigger(popupState)}>
             <LanguageIcon />
           </Button>
@@ -32,7 +32,7 @@ export const LanguageChanger = () => {
               {t("language.en")}
             </MenuItem>
           </Menu>
-        </React.Fragment>
+        </>
       )}
     </PopupState>
   );

@@ -7,10 +7,9 @@ import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Card from "@mui/material/Card";
-import * as React from "react";
 import { styled } from "@mui/material/styles";
-import { FC } from "react";
-import { Article } from "../../redux/news/operations";
+import { FC, useState } from "react";
+import { Article } from "../redux/news/operations";
 import moment from "moment";
 import Link from "@mui/material/Link";
 import { useTranslation } from "react-i18next";
@@ -46,7 +45,7 @@ export const NewsCard: FC<Props> = ({ articleData }) => {
   const {
     i18n: { language },
   } = useTranslation();
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);

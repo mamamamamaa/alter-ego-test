@@ -1,7 +1,6 @@
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import * as React from "react";
 import { FC } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { useTranslation } from "react-i18next";

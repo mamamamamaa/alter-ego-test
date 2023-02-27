@@ -1,17 +1,25 @@
-import { FC } from "react";
-import { Logo } from "../Logo/Logo";
+import { FC, useEffect } from "react";
+import { Logo } from "../Logo";
 import { NavLink } from "react-router-dom";
-import { useAuth } from "../../redux/hooks";
+import { useAuth, useNews } from "../../redux/hooks";
 import style from "./AppBar.module.css";
 import Box from "@mui/material/Box";
-import * as React from "react";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { LanguageChanger } from "../LanguageChanger/LanguageChanger";
+import { LanguageChanger } from "../LanguageChanger";
 
 export const AppBar: FC = () => {
-  const { isLoggedIn, error } = useAuth();
+  const { isLoggedIn, error: authError } = useAuth();
+  const { error: newsError } = useNews();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const error = authError || newsError;
+    if (error) {
+      toast.error(error);
+    }
+  }, [authError, authError]);
+
   return (
     <>
       <Toaster />

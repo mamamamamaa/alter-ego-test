@@ -1,15 +1,26 @@
 import { Outlet } from "react-router-dom";
 import { FC, Suspense } from "react";
 import { Box, Container } from "@mui/material";
-import style from "./Layout.module.css";
-import { AppBar } from "../AppBar/AppBar";
-import * as React from "react";
-import { Footer } from "../Footer/Footer";
+import { AppBar } from "./AppBar/AppBar";
+import { Footer } from "./Footer";
+
+const containerStyles = {
+  backgroundColor: "#efebeb",
+  boxShadow: "10px 10px 44px -21px rgba(0, 0, 0, 0.75)",
+};
+const boxStyles = {
+  p: "12px",
+  height: "50px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  borderBottom: "1px solid #1976d2",
+};
 
 export const Layout: FC = () => {
   return (
-    <Container className={style.containerStyles}>
-      <Box className={style.boxStyles}>
+    <Container sx={containerStyles}>
+      <Box sx={boxStyles}>
         <AppBar />
       </Box>
       <Box style={{ minHeight: "100vh", height: "100%" }}>
