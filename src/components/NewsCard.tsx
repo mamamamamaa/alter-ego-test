@@ -4,7 +4,8 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
-import ShareIcon from "@mui/icons-material/Share";
+import DeleteIcon from "@mui/icons-material/Delete";
+import LinkIcon from "@mui/icons-material/Link";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Card from "@mui/material/Card";
 import { styled } from "@mui/material/styles";
@@ -13,6 +14,8 @@ import { Article } from "../redux/news/operations";
 import moment from "moment";
 import Link from "@mui/material/Link";
 import { useTranslation } from "react-i18next";
+import { useAppDispatch } from "../redux/hooks";
+import { deleteNews } from "../redux/news/newsSlice";
 
 const DEFAULT_IMAGE = "https://source.unsplash.com/random";
 
@@ -46,10 +49,12 @@ export const NewsCard: FC<Props> = ({ articleData }) => {
     i18n: { language },
   } = useTranslation();
   const [expanded, setExpanded] = useState(false);
+  const dispatch = useAppDispatch();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  const handleDelete = () => dispatch(deleteNews(publishedAt));
 
   const articleAuthor = author || "Author unknown";
   const date = moment(publishedAt).format("MMMM Do YYYY");
@@ -77,9 +82,12 @@ export const NewsCard: FC<Props> = ({ articleData }) => {
         <CardActions disableSpacing>
           <Link href={url} target="_blanl">
             <IconButton aria-label="share">
-              <ShareIcon />
+              <LinkIcon />
             </IconButton>
           </Link>
+          <IconButton aria-label="share" onClick={handleDelete}>
+            <DeleteIcon />
+          </IconButton>
           <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}

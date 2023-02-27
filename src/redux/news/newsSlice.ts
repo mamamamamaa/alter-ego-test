@@ -26,6 +26,11 @@ const newsSlice = createSlice({
     changeNewsLanguage(state, action) {
       state.newsLanguage = action.payload === "ua" ? "de" : action.payload;
     },
+    deleteNews(state, action) {
+      state.news = state.news.filter(
+        ({ publishedAt }) => publishedAt !== action.payload
+      );
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -47,5 +52,5 @@ const newsSlice = createSlice({
 });
 
 export const newsReducer = newsSlice.reducer;
-export const { changeNewsLanguage } = newsSlice.actions;
+export const { changeNewsLanguage, deleteNews } = newsSlice.actions;
 export type NewsSliceState = ReturnType<typeof newsSlice.getInitialState>;
