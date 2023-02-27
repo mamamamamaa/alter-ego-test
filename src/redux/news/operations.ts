@@ -1,9 +1,11 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import { NewsSliceState } from "./newsSlice";
 
+const {REACT_APP_NEWS_SERVER} = process.env;
+axios.defaults.baseURL = REACT_APP_NEWS_SERVER;
+
 export const PAGE_SIZE = 30;
-axios.defaults.baseURL = "https://alter-ego-back.onrender.com/api";
 
 interface NewsResponse {
   status: string;

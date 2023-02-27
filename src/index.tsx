@@ -19,7 +19,7 @@ root.render(
   <ThemeProvider theme={theme}>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/alter-ego-test">
+        <BrowserRouter>
           <App />
         </BrowserRouter>
       </PersistGate>
