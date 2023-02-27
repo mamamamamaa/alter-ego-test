@@ -32,5 +32,8 @@
     "signInHeading": "Вхід",
     "username": "Ім'я користувача",
     "password": "Пароль"
+  },
+  "notFound": {
+    "title": "Такої сторінки не існує"
   }
 }

@@ -32,5 +32,8 @@
     "signInHeading": "Sign In",
     "username": "Username",
     "password": "Password"
+  },
+  "notFound": {
+    "title": "No such page exists"
   }
 }

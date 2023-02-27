@@ -59,7 +59,7 @@ export const NewsCard: FC<Props> = ({ articleData }) => {
   const articleAuthor = author || "Author unknown";
   const date = moment(publishedAt).format("MMMM Do YYYY");
 
-  const numbOfTitleSymbols = language === "ua" ? 14 : 17;
+  const numbOfTitleSymbols = language === "ua" ? 14 : 16;
   const truncateTitle = truncateString(title, numbOfTitleSymbols) || "No title";
   const truncateDescription =
     truncateString(description, 200) || "No description";
