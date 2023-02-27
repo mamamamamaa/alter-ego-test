@@ -18,7 +18,7 @@ export const AppBar: FC = () => {
     if (error) {
       toast.error(error);
     }
-  }, [authError, authError]);
+  }, [authError, newsError]);
 
   return (
     <>

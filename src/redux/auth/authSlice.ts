@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PersistPartial } from "redux-persist/es/persistReducer";
 const { REACT_APP_USERNAME, REACT_APP_PASSWORD } = process.env;
 
 interface IInitialState {

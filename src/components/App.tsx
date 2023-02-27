@@ -19,7 +19,7 @@ export const App: FC = () => {
 
   useEffect(() => {
     dispatch(changeNewsLanguage(i18n.language));
-  }, [dispatch]);
+  }, [dispatch, i18n]);
 
   return (
     <>

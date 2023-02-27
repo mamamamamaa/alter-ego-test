@@ -19,7 +19,7 @@ export const NewsList: FC = () => {
     if (news.length === 0) {
       dispatch(getNews());
     }
-  }, []);
+  }, [dispatch, news]);
 
   return (
     <Container sx={{ py: 8 }} maxWidth="md">
