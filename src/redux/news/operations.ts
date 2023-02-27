@@ -40,7 +40,7 @@ export const getNews = createAsyncThunk<
     }
 
     const res = await axios.get(
-      `https://alter-ego-back.onrender.com?&pageSize=${PAGE_SIZE}&page=${currentPage}&language=${newsLanguage}`
+      `https://alter-ego-back.onrender.com/api/news?&pageSize=${PAGE_SIZE}&page=${currentPage}&language=${newsLanguage}`
     );
 
     return res.data;
