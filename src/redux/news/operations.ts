@@ -32,7 +32,7 @@ export const getNews = createAsyncThunk<
     const { maxPage, currentPage, newsLanguage } = news as {
       maxPage: number;
       currentPage: number;
-      newsLanguage: "en" | "ru";
+      newsLanguage: "en" | "de";
     };
 
     if (currentPage > 1 && currentPage > maxPage) {
