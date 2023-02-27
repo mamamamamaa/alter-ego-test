@@ -6,10 +6,12 @@ import Container from "@mui/material/Container";
 import { NewsCard } from "../NewsCard/NewsCard";
 import { useAppDispatch, useNews } from "../../redux/hooks";
 import { getNews } from "../../redux/news/operations";
+import { useTranslation } from "react-i18next";
 
 export const NewsList: FC = () => {
   const dispatch = useAppDispatch();
   const { news, isLoading } = useNews();
+  const { t } = useTranslation();
 
   const handleLoadMore = () => dispatch(getNews());
 
@@ -32,11 +34,11 @@ export const NewsList: FC = () => {
       <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
         <LoadingButton
           loading={isLoading}
-          loadingIndicator="Loading…"
+          loadingIndicator={t("news.loading")}
           variant="contained"
           onClick={handleLoadMore}
         >
-          Fetch data
+          {t("news.fetch")}
         </LoadingButton>
       </Stack>
     </Container>
