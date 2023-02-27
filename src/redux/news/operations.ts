@@ -43,7 +43,7 @@ export const getNews = createAsyncThunk<
     }
 
     const res = await axios.get(
-      `/news?pageSize=${PAGE_SIZE}&page=${currentPage}&language=${newsLanguage}`
+      `/news?pageSize=${PAGE_SIZE}&query=ukraine&page=${currentPage}&language=${newsLanguage}`
     );
 
     return res.data;
