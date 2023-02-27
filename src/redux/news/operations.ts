@@ -3,6 +3,7 @@ import axios from "axios";
 import { NewsSliceState } from "./newsSlice";
 
 export const PAGE_SIZE = 30;
+axios.defaults.baseURL = "https://alter-ego-back.onrender.com/api";
 
 interface NewsResponse {
   status: string;
@@ -40,7 +41,7 @@ export const getNews = createAsyncThunk<
     }
 
     const res = await axios.get(
-      `https://alter-ego-back.onrender.com/api/news?&pageSize=${PAGE_SIZE}&page=${currentPage}&language=${newsLanguage}`
+      `/news?&pageSize=${PAGE_SIZE}&page=${currentPage}&language=${newsLanguage}`
     );
 
     return res.data;
