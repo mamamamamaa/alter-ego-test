@@ -2,7 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { NewsSliceState } from "./newsSlice";
 
-const { REACT_APP_API_KEY } = process.env;
 export const PAGE_SIZE = 30;
 
 interface NewsResponse {
