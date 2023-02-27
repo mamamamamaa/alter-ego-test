@@ -61,11 +61,7 @@ export const NewsCard: FC<Props> = ({ articleData }) => {
 
   return (
     <>
-      <Card
-        sx={{
-          maxWidth: 345,
-        }}
-      >
+      <Card sx={{ maxWidth: 345 }}>
         <CardHeader title={truncateTitle} subheader={date} />
         <CardMedia
           component="img"
