@@ -2,7 +2,7 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { NewsSliceState } from "./newsSlice";
 
-const {REACT_APP_NEWS_SERVER} = process.env;
+const { REACT_APP_NEWS_SERVER } = process.env;
 axios.defaults.baseURL = REACT_APP_NEWS_SERVER;
 
 export const PAGE_SIZE = 30;
@@ -43,7 +43,7 @@ export const getNews = createAsyncThunk<
     }
 
     const res = await axios.get(
-      `/news?&pageSize=${PAGE_SIZE}&page=${currentPage}&language=${newsLanguage}`
+      `/news?pageSize=${PAGE_SIZE}&page=${currentPage}&language=${newsLanguage}`
     );
 
     return res.data;
