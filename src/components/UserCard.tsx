@@ -6,6 +6,16 @@ import Button from "@mui/material/Button";
 import { logout } from "../redux/auth/authSlice";
 import { useTranslation } from "react-i18next";
 
+const boxStyles = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+  paddingTop: 10,
+  paddingBottom: 10,
+  gap: 5,
+};
+
 export const UserCard: FC = () => {
   const { username } = useAuth();
   const { t } = useTranslation();
@@ -15,15 +25,7 @@ export const UserCard: FC = () => {
 
   return (
     <>
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        flexDirection="column"
-        paddingTop={10}
-        paddingBottom={10}
-        gap={5}
-      >
+      <Box sx={boxStyles}>
         <Typography variant="h2" color="gray">
           {t("profile.welcome")} -{" "}
           <Box component="span" color="#1976d2">
