@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkalter_ego_test=self.webpackChunkalter_ego_test||[]).push([[846],{846:function(e,t,n){n.r(t);var r=n(4554),s=n(890),a=n(9230),c=n(184);t.default=function(){var e=(0,a.$G)().t;return(0,c.jsx)(c.Fragment,{children:(0,c.jsx)(r.Z,{sx:{py:10},children:(0,c.jsx)(s.Z,{variant:"h1",sx:{textAlign:"center",color:"#676666"},children:e("home.banner")})})})}}}]);
+//# sourceMappingURL=846.50d85da2.chunk.js.map

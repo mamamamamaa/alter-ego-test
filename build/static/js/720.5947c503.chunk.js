@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkalter_ego_test=self.webpackChunkalter_ego_test||[]).push([[720],{720:function(e,t,n){n.r(t);var r=n(184);t.default=function(){return(0,r.jsx)(r.Fragment,{children:"Not Found"})}}}]);
+//# sourceMappingURL=720.5947c503.chunk.js.map
