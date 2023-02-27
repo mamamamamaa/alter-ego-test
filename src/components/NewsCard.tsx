@@ -52,9 +52,12 @@ export const NewsCard: FC<Props> = ({ articleData }) => {
   const dispatch = useAppDispatch();
 
   const handleExpandClick = () => {
-    setExpanded(!expanded);
+    setExpanded((prevState) => !prevState);
   };
-  const handleDelete = () => dispatch(deleteNews(publishedAt));
+  const handleDelete = () => {
+    setExpanded(false);
+    dispatch(deleteNews(publishedAt));
+  };
 
   const articleAuthor = author || "Author unknown";
   const date = moment(publishedAt).format("MMMM Do YYYY");
